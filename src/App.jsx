@@ -1,24 +1,41 @@
 import { useState } from "react";
+import KartuMenu from "./components/KartuMenu";
+import Panel from "./components/Panel";
 
-function App (){
+function App(){
   const N = 89;
   const jam = 9;
-  const [judul,setJudul] = useState ("kantin Ardi ");
+  const [judul, setJudul] = useState ("Kantin Farel kun");
 
   const style = {
-    color : "blue",
+    color :"pink",
     fontSize : "30px",
     fontWeight : "bold"
   }
 
   return (
     <>
-    <p style = {style}>{judul}</p>
-    <p>{jam < 12 ? "selamat pagi" : "selamat siang"}</p>
-    <p>saldo awal kartu kantin: Rp.{N*1000}</p>
-    <button disabled="disabled">bayar</button>
+    <p style= {style}> {judul}</p>
+    <p>{jam <12 ? "Selamat pagi" : "Selamat siang "}</p>
+    <p>Saldo awal kartu kantin: Rp.{N*1000}</p>
+    <button disabled="disabled">Bayar</button>
+    <Panel judul="Menu Hari Ini">
+      <KartuMenu nama="Nasi Ayam Geprek" harga={19100} />
+      <KartuMenu nama="Es Teh Lemon" harga={5000} kategori="Minuman" />
+      <KartuMenu nama="Mie Goreng Telur" harga={15000} kategori="Makanan" />
+    </Panel>
     </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+  
